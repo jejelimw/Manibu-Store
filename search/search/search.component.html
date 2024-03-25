@@ -1,0 +1,39 @@
+<div
+  class="relative flex items-center w-96 h-14 bg-transparent max-sm:!w-full max-[768px]:!w-full"
+  [ngClass]="[divStyle]"
+>
+  <input
+    type="search"
+    [formControl]="searchControl"
+    [(ngModel)]="name"
+    (keyup)="emitFilters()"
+    class="duration-300 w-full pl-13 pr-6 py-2 rounded-[64px] focus:outline-non h-full !bg-low-medium max-[768px]:!flex-col max-[768px]:!w-full"
+    placeholder="Pesquisar"
+    autocomplete="off"
+  />
+
+  <span
+    [class.scale-100]="!name"
+    [class.scale-0]="name"
+    class="material-symbols-rounded absolute right-3 transition-transform ease-in-out text-low-light text-lg pr-2"
+  >
+    search
+  </span>
+
+  <span
+    [class.scale-0]="!name"
+    [class.scale-100]="name"
+    class="material-symbols-rounded absolute left-3 transition-transform ease-in-out text-low-light text-lg pl-2"
+  >
+    search
+  </span>
+
+  <span
+    class="underline text-low-light -ml-16 cursor-pointer transition-transform ease-in-out text-xs pr-2"
+    [class.scale-0]="!name"
+    [class.scale-100]="name"
+    (click)="clearSearch()"
+    >limpar</span
+  >
+</div>
+
